@@ -396,3 +396,11 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+# Python Environments
+.venv/
+
+# other 
+plugin/
+data/isomer_datasets/
+data/isomer_smiles/
