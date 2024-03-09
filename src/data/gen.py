@@ -245,24 +245,23 @@ def get_isomer_dataset(
             # Assuming the first conformer's symbols represent all others (they should be identical)
             symbols = [atom.symbol for atom in conformers[0]]
             _ = isomer_grp.create_dataset(
-            "symbols", data=np.array(symbols, dtype="S")
+                "symbols", data=np.array(symbols, dtype="S")
             )  # Store symbols as fixed-length byte strings
 
             # Storing conformers' positions
             all_positions = np.array([conformer.positions for conformer in conformers])
             _ = isomer_grp.create_dataset(
-            "conformers", data=all_positions, compression="gzip", compression_opts=9
+                "conformers", data=all_positions, compression="gzip", compression_opts=9
             )
-        
+
         h5f.flush()
 
     return out_pth
 
 
 if __name__ == "__main__":
-    
     logging.basicConfig(level=logging.INFO)
-    
+
     # Example usage
     # test_mol = "C4H10"
     # test_mol = "C5H12"
